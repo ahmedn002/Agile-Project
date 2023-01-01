@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap");
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+      @import url("http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Nunito Sans", sans-serif;
+        background: #131315;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .login-container {
+        border: 1px solid white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        background-color: #242026;
+        box-shadow: 0 15px 25px rgba(221, 89, 239, 0.7);
+        border-radius: 10px;
+      }
+      .container {
+        height: 100vh;
+        width: 100vw;
+        margin: auto;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .header {
+        background: #0d0d0e;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2px;
+        font-size: 14px;
+      }
+
+      .header ul {
+        display: flex;
+        flex-direction: row;
+        border-radius: 5px;
+        padding: 8px 5px;
+        list-style: none;
+      }
+
+      .header #sign li {
+        margin: 0px 10px;
+      }
+      .header #sign li:after {
+        display: block;
+        content: "";
+        border-bottom: solid 1px #6868ab;
+        padding-bottom: 1%;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+      .header #sign li:hover:after {
+        transform: scaleX(1);
+      }
+
+      #social li {
+        margin: 0 10px;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+      }
+
+      .header #social::before,
+      .header #social::after {
+        content: "";
+        border-top: 2px solid rgba(221, 89, 239, 0.7);
+        width: 5px;
+        height: 0;
+        margin: 12px 5px;
+      }
+
+      #social li span {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        background-color: #2a2a2a;
+        transition: 1.5s ease-out;
+      }
+
+      #social li:hover span {
+        transition: 0.3s;
+      }
+
+      #social li:nth-child(1):hover span {
+        background: #2c3456 !important;
+      }
+      #social li:nth-child(2):hover span {
+        background: #6a9aee !important;
+      }
+      #social li:nth-child(3):hover span {
+        background: #cc296c !important;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 200px;
+        background: #0d0d0e;
+        box-shadow: 0 25px 20px -15px rgba(221, 89, 239, 0.7);
+      }
+
+      nav div {
+        height: 100%;
+      }
+
+      nav .page-icon {
+        width: 30%;
+        padding: 8px 5px;
+      }
+
+      #icon {
+        position: relative;
+        border: none;
+        border-bottom: 3px solid palegreen;
+        font-size: 80px;
+        background: transparent;
+        top: 20%;
+        left: 10%;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #name {
+        text-transform: uppercase;
+        position: relative;
+        top: 25%;
+        left: 10%;
+      }
+
+      nav .bar {
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        align-items: flex-end;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav li {
+        margin: 15px;
+        transition: 0.3s ease-in-out;
+        text-transform: uppercase;
+      }
+      nav li a:hover {
+        transition: inherit;
+        color: #6868ab;
+      }
+
+      .radiology {
+        margin-top: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        text-transform: uppercase;
+        background: transparent;
+        font-size: x-large;
+        border-radius: 10px;
+        pointer-events: none;
+      }
+
+      .services ul {
+        margin: 50px 0;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        list-style: none;
+        border-radius: 20px;
+        box-shadow: 0px 4px 8px 0px palegreen, 0px 6px 20px 0px palegreen;
+        height: 50px;
+        padding: 30px 0px;
+        overflow-y: hidden;
+      }
+
+      .services li:after {
+        display: block;
+        content: "";
+        border-bottom: solid 1px palegreen;
+        padding-bottom: 1%;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+      .services li:hover:after {
+        transform: scaleX(1);
+      }
+
+      .description {
+        margin: 50px auto;
+        width: 90vw;
+        height: 50vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .text {
+        box-shadow: 0px 4px 8px 0px palegreen;
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+        height: 90%;
+      }
+
+      .text div {
+        font-size: larger;
+        font-weight: 200;
+        text-align: justify;
+        padding: 20px;
+      }
+
+      .image {
+        width: 30%;
+        overflow: hidden;
+        height: 90%;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap");
+
+      .Reservation-container {
+        border: 1px solid white;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        background-color: #242026;
+        box-shadow: 0 15px 25px rgba(221, 89, 239, 0.7);
+        border-radius: 10px;
+      }
+
+      .registration-container {
+        border: 1px solid white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        background-color: #242026;
+        box-shadow: 0 15px 25px rgba(221, 89, 239, 0.7);
+        border-radius: 10px;
+      }
+
+      h2 {
+        margin: 0 0 30px;
+        padding: 0;
+        color: white;
+        text-align: center;
+      }
+
+      .user-box input {
+        position: relative;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: white;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid white;
+        outline: none;
+        background: transparent;
+      }
+
+      .user-box label {
+        position: relative;
+        left: 0;
+        top: -60px;
+        padding: 10px 0;
+        font-size: 16px;
+        color: white;
+        pointer-events: none;
+        transition-duration: 0.5s;
+      }
+
+      .user-box input:focus ~ label,
+      .user-box input:valid ~ label {
+        top: -85px;
+        left: 0;
+        color: rgba(221, 89, 239, 0.7);
+        font-size: 12px;
+      }
+
+      #submit {
+        padding: 10px 20px;
+        color: #cbbddb;
+        font-size: 16px;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: 0.5s;
+        letter-spacing: 4px;
+        border: 1px solid rgba(221, 89, 239, 0.7);
+        background: transparent;
+        border-radius: 5px;
+      }
+
+      #submit:hover {
+        transition: 0.5s;
+        background: rgba(221, 89, 239, 0.7);
+        color: #fff;
+        box-shadow: 0 0 5px rgba(221, 89, 239, 0.7),
+          0 0 25px rgba(221, 89, 239, 0.7), 0 0 50px rgba(221, 89, 239, 0.7),
+          0 0 100px rgba(221, 89, 239, 0.7);
+      }
+
+      .button-form {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+      }
+
+      #register {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        color: #cbbddb;
+        width: 60%;
+        text-align: center;
+      }
+      #register a {
+        color: rgba(221, 89, 239, 0.7);
+        text-decoration: none;
+      }
+
+      #registerdiv {
+        text-align: right;
+      }
+
+      #registerdiv input {
+        color: rgba(221, 89, 239, 0.7);
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 1px solid rgba(221, 89, 239, 0.7);
+        border-radius: 10px;
+        background: transparent;
+      }
+
+      #registerdiv input:hover {
+        transition: 0.5s;
+        background: rgba(221, 89, 239, 0.7);
+        color: #fff;
+        box-shadow: 0 0 5px rgba(221, 89, 239, 0.7),
+          0 0 25px rgba(221, 89, 239, 0.7), 0 0 50px rgba(221, 89, 239, 0.7),
+          0 0 100px rgba(221, 89, 239, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!--Header-->
+      <div class="header">
+        <ul id="social">
+          <li>
+            <a href="https://www.facebook.com/" target="_blank"
+              ><span class="fa fa-facebook"></span
+            ></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/" target="_blank"
+              ><span class="fa fa-twitter"></span
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><span class="fa fa-instagram"></span
+            ></a>
+          </li>
+        </ul>
+        <ul id="sign">
+          <li><a href="/login" id="logintop">Login</a></li>
+          <li><a href="/register" id="registertop">Register</a></li>
+        </ul>
+      </div>
+
+      <!--Navigation Bar-->
+      <nav class="navbar">
+        <div class="page-icon">
+          <span class="fa fa-heartbeat" id="icon"></span>
+          <span id="name">Dar el ashaa</span>
+        </div>
+        <div class="bar">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="/Reservations">Reservations</a></li>
+            <li><a href="#">Information</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="radiology">Radiology Services</div>
+
+      <!--Radiology Services-->
+      <div class="services">
+        <ul>
+          <li><a href="#">MRI</a></li>
+          <li><a href="#">CT</a></li>
+          <li><a href="#">NUCLEAR IMAGING</a></li>
+          <li><a href="#">WOMEN IMAGING</a></li>
+          <li><a href="#">ULTRASOUND</a></li>
+          <li><a href="#">CONVENTIONAL X-RAY</a></li>
+        </ul>
+      </div>
+
+      <!--Description for each service and its picture-->
+      <div class="description">
+        <div class="text">
+          <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+            officiis iste exercitationem ipsum reiciendis nostrum, dolorem,
+            necessitatibus laudantium, minima voluptas dolore assumenda earum!
+            Asperiores illo provident et porro, sapiente laudantium. Lorem ipsum
+            dolor sit, amet consectetur adipisicing elit. Unde ut culpa aut
+            sapiente dolor. Libero, magnam ab eius odit omnis quos similique qui
+            minima nam, vero ad doloremque hic alias! Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Voluptate quo itaque odio beatae
+            quibusdam harum repellat placeat velit magnam molestias nemo,
+            deserunt libero, laborum obcaecati aut voluptatum reprehenderit, est
+            repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Accusamus neque beatae reprehenderit nisi sapiente nesciunt
+            distinctio. Neque architecto animi, est labore ab optio inventore
+            consectetur alias commodi officiis qui corporis? Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Fugiat esse pariatur quaerat
+            perferendis reiciendis officiis! Eum dolore nobis ea quam est
+            tenetur consequuntur eveniet quasi, ut impedit voluptatem, quisquam
+            voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Accusamus facilis quam architecto accusantium, sint ex
+            temporibus asperiores perferendis quidem minus nisi et, ad quisquam
+            fugit voluptatem veniam! Enim, consequuntur vitae? Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Tenetur temporibus sed magni
+            ad libero incidunt quae accusamus modi soluta voluptatem, nostrum
+            non eligendi ex recusandae, doloribus harum quis officiis nesciunt.
+          </div>
+        </div>
+        <div class="image"><img src="/images/background.jpg" /></div>
+      </div>
+    </div>
+  </body>
+</html>
